@@ -20,6 +20,7 @@ public class Funcionario {
     @NotBlank(message = "O nome não pode estar vazio!")
     private String nome;
 
+    @NotBlank(message = "O email não pode estar vazio!")
     @Column(unique = true)
     @Email(message = "O email não é válido!")
     private String email;

@@ -31,4 +31,6 @@ public class FuncionarioService {
         repository.deleteById(id);
     }
 
+    public List<Funcionario> buscarPorSalario(Double salario){ return repository.findBySalarioGreaterThan(salario); }
+
 }

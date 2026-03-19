@@ -31,4 +31,11 @@ public class GlobalExceptionHandler {
             return erro;
         }
 
+        @ExceptionHandler(DataIntegrityViolationException.class)
+        @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+        public String tratarValidacaoEmail(DataIntegrityViolationException exception){
+            String mensagem = "O email já está cadastrado!";
+            return mensagem;
+        }
+
 }

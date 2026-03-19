@@ -42,4 +42,7 @@ public class FuncionarioController {
         service.remover(id);
     }
 
+    @GetMapping("/buscarPorSalario{salario}")
+    public List<Funcionario> buscarPorSalario(@RequestParam Double salario){ return service.buscarPorSalario(salario); }
+
 }
