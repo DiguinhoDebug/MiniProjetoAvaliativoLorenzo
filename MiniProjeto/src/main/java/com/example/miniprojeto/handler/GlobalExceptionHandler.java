@@ -1,6 +1,7 @@
 package com.example.miniprojeto.handler;
 
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -29,17 +30,5 @@ public class GlobalExceptionHandler {
             erro.put("erro", ex.getMessage());
             return erro;
         }
-
-        @ExceptionHandler(MethodArgumentNotValidException.class)
-        @ResponseStatus(HttpStatus.ALREADY_REPORTED)
-        public Map<String, String> tratarValidacaoEmail(MethodArgumentNotValidException exception){
-            Map<String, String> erros = new HashMap<>();
-            exception.getBindingResult().getFieldErrors().forEach(erro ->
-                    erros.put(erro.getField(), erro.getDefaultMessage()));
-            return erros;
-        }
-
-
-
 
 }

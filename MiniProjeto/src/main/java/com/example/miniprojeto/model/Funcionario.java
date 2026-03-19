@@ -1,6 +1,7 @@
 package com.example.miniprojeto.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -19,8 +20,8 @@ public class Funcionario {
     @NotBlank(message = "O nome não pode estar vazio!")
     private String nome;
 
-    @NotBlank(message = "O email tem que ser válido")
     @Column(unique = true)
+    @Email(message = "O email não é válido!")
     private String email;
 
     @NotBlank(message = "O cargo não pode ser vazio!")
